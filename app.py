@@ -25,6 +25,7 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
+CORS(app, resources={r"/*": {"origins": "https://kindr-2.vercel.app"}}, supports_credentials=True)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 CORS(app, resources={r"/charity": {"origins": "http://localhost:5173"}})
